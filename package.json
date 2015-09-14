@@ -1,0 +1,21 @@
+{
+  "name": "phaff-cms",
+  "version": "0.0.1",
+  "description": "Driver project for phaff",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phaff/Phaff-CMS.git"
+  },
+  "keywords": [
+    "cms"
+  ],
+  "author": "Nainterceptor",
+  "bugs": {
+    "url": "https://github.com/Phaff/Phaff-CMS/issues"
+  },
+  "homepage": "https://github.com/Phaff/Phaff-CMS#readme"
+}
