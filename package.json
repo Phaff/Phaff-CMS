@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --harmony ./server.js"
+    "start": "iojs $(iojs --v8-options | grep harm | awk '{print $1}' | xargs) ./server.js"
   },
   "repository": {
     "type": "git",
