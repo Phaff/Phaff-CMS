@@ -1,12 +1,28 @@
 "use strict";
 
-const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-const Counter = require('phaff');
+const Phaff = require('phaff');
 
-var server = http.createServer((req, res) => {
-    res.writeHead(200, {});
-    res.write("");
-    res.end();
-});
-server.listen(1337);
+let phaff = new Phaff();
+
+
+phaff
+    .readFrameworkConfig()
+    .then(
+        () => phaff.config.readDirectory(path.join(__dirname, 'config'))
+    )
+    .then(
+        () => phaff.newServer()
+    )
+    .then(
+        (server) => {
+            fs.readdir(path.join(__dirname, 'controllers'), (err, files) => {
+                files.forEach((file) => {
+                    server.registerRoute(require(path.join(__dirname, 'controllers', file)));
+                });
+                server.listen(1337);
+            });
+        }
+    );
